@@ -5,7 +5,8 @@
 | **Split evaluated** | `SWE-bench_Verified / test` (500 instances) |
 | **Resolved instances** | 366 / 500  →  **73 .2 %** |
 | **Model endpoint** | `https://sd15vu0fhj5i8uvr669og.apigateway-cn-beijing.volceapi.com/v1` |
-| **Model name** | MindLink-Beta|
+| **Model name** | MindLink-Beta | 
+| **Base model** | [**mistralai/Mistral-Small-24B-Instruct-2501**](https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501)| 
 
 ---
 
