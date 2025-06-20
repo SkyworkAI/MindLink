@@ -2,9 +2,9 @@ DATASET="princeton-nlp/SWE-bench_Verified"
 OUTPUT_FOLDER="results/MindLink_Beta"
 
 export MODEL_NAME="MindLink_Beta"
-export BASE_URL="https://sd15vu0fhj5i8uvr669og.apigateway-cn-beijing.volceapi.com/v1"
+export BASE_URL=""
 export API_KEY="xxxxx"
-export API_KEY="fda45cee-2f76-4288-87a1-355a7c4dee85"
+export API_KEY=""
 
 export PYTHONPATH=$PYTHONPATH:$(pwd)
 export PROJECT_FILE_LOC=repo_structures
