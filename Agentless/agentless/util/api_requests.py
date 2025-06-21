@@ -60,9 +60,6 @@ def request_chatgpt_engine(config, logger, base_url=None, api_key=None, max_retr
     ret = None
     retries = 0
 
-    print(os.environ.get("BASE_URL"))
-    print(os.environ.get("API_KEY"))
-
     if not base_url:
         base_url = os.environ.get("BASE_URL")
     if not api_key:
@@ -86,7 +83,8 @@ def request_chatgpt_engine(config, logger, base_url=None, api_key=None, max_retr
                 logger.info("Request invalid")
                 print(e)
                 logger.info(e)
-                raise Exception("Invalid API Request")
+                return ""
+                # raise Exception("Invalid API Request")
             elif isinstance(e, openai.RateLimitError):
                 print("Rate limit exceeded. Waiting...")
                 logger.info("Rate limit exceeded. Waiting...")

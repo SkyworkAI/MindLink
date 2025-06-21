@@ -67,7 +67,7 @@ class OpenAIChatDecoder(DecoderBase):
             completion_tokens = ret.usage.completion_tokens
             prompt_tokens = ret.usage.prompt_tokens
         else:
-            responses = [""]
+            responses = [""] * 10
             completion_tokens = 0
             prompt_tokens = 0
 

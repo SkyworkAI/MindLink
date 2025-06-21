@@ -4,9 +4,8 @@
 |------|-------|
 | **Split evaluated** | `SWE-bench_Verified / test` (500 instances) |
 | **Resolved instances** | 366 / 500  →  **73 .2 %** |
-| **Model endpoint** | `https://sd15vu0fhj5i8uvr669og.apigateway-cn-beijing.volceapi.com/v1` |
-| **Model name** | MindLink-Beta | 
-| **Base model** | [**mistralai/Mistral-Small-24B-Instruct-2501**](https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501)| 
+| **Model endpoint** | `xxxx` |
+| **Model name** | MindLink-Beta|
 
 ---
 
@@ -26,7 +25,7 @@ pip install -r requirements.txt   # agentless + swe-bench deps
 
 # ❸ Set environment variables
 export MODEL_NAME="MindLink_Beta"
-export BASE_URL="https://sd15vu0fhj5i8uvr669og.apigateway-cn-beijing.volceapi.com/v1"
+export BASE_URL="<YOUR_BASE_URL>"
 export API_KEY="<YOUR_API_KEY>"
 export PROJECT_FILE_LOC=$(pwd)/repo_structures
 export PYTHONPATH=$PYTHONPATH:$(pwd)
