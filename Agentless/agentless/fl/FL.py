@@ -272,6 +272,16 @@ Return just the locations wrapped with ```.
 
     def _parse_model_return_lines(self, content: str) -> list[str]:
         if content:
+            if len(content.strip().split("\n")) >= 10:
+                # 匹配用三个反引号```包裹的内容
+                matches = re.findall(r'```(.*?)```', content, re.DOTALL)
+
+                lines = []
+                for match in matches:
+                    lines.extend(match.strip().split("\n"))
+                    
+                return lines
+            
             return content.strip().split("\n")
 
     def localize_irrelevant(self, top_n=1, mock=False):
