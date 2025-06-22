@@ -87,16 +87,7 @@ else:
 
 ## 3. Evaluation
 
-The experimental MindLink performs well on a range of benchmarks.
-
-
-<p align="center">
-  <img src="figure1.png" alt="description">
-  <br>
-  <em>Figure 1: Benchmark Comparison Against Large Language Models</em>
-</p>
-
-
+The experimental MindLink has been evaluated on a range of benchmarks. More powerful model is training and the new scores will be updated soon. 
 
 
 MindLink: License and Usage Information
