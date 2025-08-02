@@ -1,37 +1,55 @@
 # MindLink
 
-## 1. Model Description
+[English](README.md) | [中文](README_CN.md)
 
-We introduce MindLink, a new family of large language models developed by **Kunlun Inc**. Built on **Mistral**, this experimental model incorporates our latest advances in post-training techniques. The model shows promising results across several common benchmarks and may be useful for various AI applications. We welcome feedback as we continue to refine our approach.
+## Model Description
+
+We introduce **MindLink**, a new family of large language models developed by **Kunlun Inc**. Built on **Qwen**, these models incorporate our latest advances in post-training techniques. MindLink demonstrates strong performance across various common benchmarks and is widely applicable in diverse AI scenarios. We welcome feedback to help us continuously optimize and improve our models.
+
+### 🚀 Model Downloads
+
+<div align="center">
+
+| **🤖 Model** | **📏 Context Length** | **⬇️ Download** |
+| :---: | :---: | :---: |
+| **MindLink 32B** | `128K` | [🤗 **HuggingFace**](https://huggingface.co/Skywork/MindLink-32B-0801) |
+| **MindLink 72B** | `128K` | [🤗 **HuggingFace**](https://huggingface.co/Skywork/MindLink-72B-0801) |
+
+</div>
 
 
-🚀 What's Next: 
 
-- **Enhanced Models**: More powerful versions are in development and launching soon.
-- **Technical Documentation**: Detailed architecture specifications, training methodologies, and benchmark results will be available soon.
+### 📖 Technical Report
+Our training methodology and evaluation: [MindLink](mindlink.pdf)
 
-Stay tuned as we advance the frontier of language AI.
+---
 
+## Highlights
 
-## 2. API Access
+* **Plan-based Reasoning**: Without the "think" tag, MindLink achieves competitive performance with leading proprietary models across a wide range of reasoning and general tasks. It significantly reduces inference cost, and improves multi-turn capabilities.
+* **Mathematical Framework**: It analyzes the effectiveness of both **Chain-of-Thought (CoT)** and **Plan-based Reasoning**.
+* **Adaptive Reasoning**: it automatically adapts its reasoning strategy based on task complexity: complex tasks produce detailed reasoning traces, while simpler tasks yield concise outputs. 
 
-This experimental model can be accessed via our API for those interested in exploration and testing. To obtain your API key, simply drop us an email at __mindlink@kunlun-inc.com__ mentioning **your affiliation** and **intended use case**.
+---
 
+## API Access
 
-Once approved, you will receive an **API Key**, which enables access to our hosted inference service.
+📢 We provide developers with a **one-month free trial** of our API for exploring and testing our models. To request access to an **Open WebUI account** (https://sd1svahsfo0m61h76e190.apigateway-cn-beijing.volceapi.com), please contact us at: **[mindlink@skywork.ai](mailto:mindlink@skywork.ai)**
+
+⚠️ Note: If you encounter inconsistent responses during inference, we recommend clearing the session context (history) and retrying.
 
 ### 🔧 Usage Instructions
 
-Our Chat API supports OpenAI's format. Simply use your API Key with HTTP POST requests.
+Our Chat API supports OpenAI's format. Simply include your API Key with HTTP POST requests.
 
 #### ✅ Sample Request using `curl`:
 
 ```bash
-curl -X POST https://api.mindlink.kunlun-inc.com/v1/chat/completions \
-     -H "Authorization: Bearer <your_api_key>" \
+curl -X POST https://sd2690u280c6ft26qcdi0.apigateway-cn-beijing.volceapi.com/v1/chat/completions \
+     -H "Authorization: Bearer nc6Dt7DrLJNzLELiqOR1bogO5Oh1qHtO" \
      -H "Content-Type: application/json" \
      -d '{
-           "model": "MindLink_Beta",
+           "model": "Mind_Link_beta_32B",
            "messages": [
              {"role": "user", "content": "What is the capital of China?"}
            ],
@@ -46,8 +64,8 @@ curl -X POST https://api.mindlink.kunlun-inc.com/v1/chat/completions \
 ```python
 import requests
 
-API_KEY = "your_api_key_here"
-API_URL = "https://api.mindlink.kunlun-inc.com/v1/chat/completions"
+API_KEY = "nc6Dt7DrLJNzLELiqOR1bogO5Oh1qHtO"
+API_URL = "https://sd2690u280c6ft26qcdi0.apigateway-cn-beijing.volceapi.com/v1/chat/completions"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",
@@ -55,7 +73,7 @@ headers = {
 }
 
 payload = {
-    "model": "MindLink_Beta",
+    "model": "Mind_Link_beta_32B",
     "messages": [
         {"role": "user", "content": "What is the capital of China?"}
     ],
@@ -78,24 +96,53 @@ else:
 
 ### 🌐 API Interface Details
 
-* **Endpoint**: `https://api.mindlink.kunlun-inc.com/v1/chat/completions`
+* **Endpoint**: `https://sd2690u280c6ft26qcdi0.apigateway-cn-beijing.volceapi.com/v1/chat/completions`
 * **Authentication**: Use your API key via `Authorization: Bearer <api_key>`
 * **Request Format**: Compatible with OpenAI's Chat Completion API
 * **Supported Fields**: `model`, `messages`, `temperature`, `top_p`, `max_tokens`, `stream`, `stop`, etc.
-* **Model Identifier**: Use `"MindLink_Beta"` as the model name
+* **Model Identifiers**: Use either `"Mind_Link_beta_32B"` or `"Mind_Link_beta_72B"`
+* **Public API Key**: We provide the following public API key: `"nc6Dt7DrLJNzLELiqOR1bogO5Oh1qHtO"` (requests via this key enter a queue and have limited request rates; contact us for unlimited access).
 
 
-## 3. Evaluation
+---
 
-The experimental MindLink has been evaluated on a range of benchmarks. More powerful model is training and the new scores will be updated soon. 
+## Evaluation
+
+The results are shown below:
+![Comparison between MindLink (ML) and other frontier models across various benchmarks.](./figure1.png)
+
+---
+
+## License and Usage Information
+
+### Model License and Terms of Use
+
+#### 1. Core License
+
+This model is licensed under the **Apache License 2.0**, granting users the following rights:
+
+✅ Commercial deployment
+
+✅ Source code modification
+
+✅ Patent authorization
+
+✅ Closed-source derivatives
+
+⚠️ Prohibition on using model names/logos for promotion without written authorization
+
+⚠️ No warranties provided
+
+#### 2. Inheritance Declaration
+
+This model is based on improvements from **Qwen** (Apache 2.0 License). You must:
+
+* Retain original Qwen copyright notices in derivative works.
+* Clearly document changes made in modification notes.
+* Adhere to any additional usage restrictions imposed by Qwen.
+
+If you have any questions, please raise an issue or contact us at mindlink@skywork.ai.
 
 
-MindLink: License and Usage Information
 
-This experimental MindLink is released under the Mistral Community License Agreement. This means that MindLink itself is licensed under the Mistral Community License, with Copyright held by © Mistral Inc.
-
-This experimental release of MindLink is specifically intended for research and testing purposes.
-
-For a comprehensive understanding of how to use this software responsibly, please refer to our Responsible Use Guidelines.
-
-*Please Note: While the MIT License is mentioned elsewhere, for this experimental MindLink release, the Mistral Community License Agreement is the governing license. We encourage you to review the full terms of this license for detailed information regarding your rights and obligations.*
+---
